@@ -30,9 +30,9 @@ def v_list(request):
         consulta = consulta.filter(shipdate__gte = filter_date)
 
 
-    p50 = consulta[:50]
+    
     context = {
-        'consulta':p50,
+        'consulta':consulta,
     }
     return render(request, 'list.html',context)
 
