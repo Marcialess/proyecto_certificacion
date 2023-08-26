@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1 class="mt-4 text-center">LISTADO ENTREGA</h1>
+        <form method="GET">
+        <div class="table-responsive">
+        
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><button  class="btn btn-primary" type="submit">Filtrar</button>
+                        </th>
+                        <th> 
+                            <label class="text-center" for = "cod_orden" class="form-label">Código Orden</label>
+                            <input aria-label="" id="ordercode" type="text"  class="form-control" name="ordercode" >
+                        </th>
+                        <th>
+                            <label class="text-center" for = "cod_orden" class="form-label">Ciudad</label>
+                            <input   id="or-city" type="text" class="form-control" name="or-city" >
+                        </th>
+                        <th>
+                            <label class="text-center" for = "cod_orden" class="form-label">Codigo Postal</label>
+                            <input  id="zipcode" type="text" class="form-control" name="zipcode">
+                        </th>
+                        <th>
+                            <label class="text-center" for = "cod_orden" class="form-label">Fecha Entrega Desde</label>
+                            <input id="shipdate" type="date" class="form-control" name="shipdate">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Codigo Orden</th>
+                        <th scope="col">Fecha de Orden</th>
+                        <th scope="col">Fecha de Vencimiento</th>
+                        <th scope="col" class="text-center">Estado</th>
+                        <th scope="col">Direccion uno</th>
+                        <th scope="col">Ciudad</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for order in consulta %}
+                        <tr>
+                            <th scope="row">{{ order.salesorderid }}</th>
+                            <td class="text-center">{{ order.shipdate|date:"d-m-Y" }}</td>
+                            <td class="text-center">{{ order.duedate|date:"d-m-Y" }}</td>
+                            <td class="text-center">{{ order.status }}</td>
+                            <td>{{ order.shiptoaddressid.addressline1}}</td>
+                            <td>{{ order.shiptoaddressid.city}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+        
+{% endblock %}
