@@ -36,7 +36,6 @@ def v_list(request):
     }
     return render(request, 'list.html',context)
 
-def v_login(request):
-    pass
+
 
 
