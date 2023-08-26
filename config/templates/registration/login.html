@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<div class="p-3 mb-2 bg-info text-dark">
+<div class="p-3 mb-2 bg-dark text-dark">
     <style>.errorlist{color:red;}</style>
     <main role="main">
         
@@ -29,8 +29,8 @@
             </p>
             <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
             </form>
-            <p>
-                Has olvidado tu contraseña? <a class="text-red" href="{% url 'password_reset' %}">Recuperar Contraseña</a>
+            <p class="text-white">
+                Has olvidado tu contraseña? <a  href="{% url 'password_reset' %}">Recuperar Contraseña</a>
             </p>
         </div>
         </div>
